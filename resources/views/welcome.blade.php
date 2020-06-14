@@ -8,9 +8,9 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+        <link href="./css/main.css" rel="stylesheet" >
         <!-- Styles -->
-        <style>
+        {{-- <style>
             html, body {
                 background-color: #fff;
                 color: #636b6f;
@@ -61,7 +61,7 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
-        </style>
+        </style> --}}
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -80,7 +80,7 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
+                <div class="title m-b-md bg-blue-500">
                     Laravel
                 </div>
 
