@@ -60,7 +60,7 @@
                     @if ( $loop->index < 5 )
                         <div class="mt-8">
                             <a href="#">
-                                <img src="{{ 'https://image.tmdb.org/t/p/w300/' . $cast['profile_path'] }}" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
+                                <img src="{{ 'https://image.tmdb.org/t/p/w300/' . $cast['profile_path'] }}" alt="cast" class="hover:opacity-75 transition ease-in-out duration-150">
                             </a>
                             <div class="mt-2">
                                 <a href="#" class="text-lg mt-2 hover:text-gray-300">{{ $cast['name'] }}</a>
