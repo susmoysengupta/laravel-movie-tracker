@@ -7,6 +7,7 @@
     <title>Movie App</title>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <livewire:styles>
 </head>
 <body class="font-sans bg-gray-900 text-white">
