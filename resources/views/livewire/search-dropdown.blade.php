@@ -2,8 +2,8 @@
     <input 
         wire:model.debounce.586ms="search" 
         type="text" 
-        class="bg-gray-800 rounded-full w-64 px-4 pl-8 py1 focus:outline-none focus:shadow-outline" 
-        placeholder="Search"
+        class="bg-gray-800 text-sm rounded-full w-64 px-4 pl-8 py-1 focus:outline-none focus:shadow-outline" 
+        placeholder="Search(Press '/' to focus)"
         @focus = "isOpen = true"
         @keydown = "isOpen = true"
         @keydown.escape.window = "isOpen = false"
