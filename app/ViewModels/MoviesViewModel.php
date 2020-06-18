@@ -20,7 +20,7 @@ class MoviesViewModel extends ViewModel
 
     public function popularMovies()
     {
-        return $this->formatMovie($this->nowPlayings);
+        return $this->formatMovie($this->popularMovies);
     }
 
     public function nowPlayings()
