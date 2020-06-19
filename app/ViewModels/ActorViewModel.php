@@ -25,7 +25,7 @@ class ActorViewModel extends ViewModel
             'profile_path' => $this->actor['profile_path'] 
                 ? 'https://image.tmdb.org/t/p/w300/'.$this->actor['profile_path']
                 : 'https://ui-avatars.com/api/?size=300&name='.$this->actor['name'],
-            ])->dump();
+            ]);
     }
 
     public function social()
@@ -40,24 +40,29 @@ class ActorViewModel extends ViewModel
             'instragram' => $this->social['instagram_id']
                         ? 'https://instagram.com/'.$this->social['instagram_id']
                         : null,
-        ])->dump();
+        ]);
     }
 
     public function movies()
     {
         $castMovies = collect($this->credits)->get('cast');
-        return collect($castMovies)->where('media_type', 'movie')->sortByDesc('popularity')->take(5)
-        ->map(function ($movie){
+        return collect($castMovies)->sortByDesc('popularity')->take(5)->map(function ($movie){
+            $title = '';
+            if( isset($movie['title']) ){
+                $title = $movie['title'];
+            }elseif( isset($movie['name']) ){
+                    $title = $movie['name'];
+            }
+
             return collect($movie)->merge([
                 'poster_path' => $movie['poster_path'] 
                                 ? 'https://image.tmdb.org/t/p/w185/'.$movie['poster_path']
                                 : 'https://ui-avatars.com/api/?size=185&name='.$movie['name'],
                 
-                'title' => isset($movie['title']) 
-                            ? $movie['title'] 
-                            : 'Untitled',
+                'title' => $title,
+                'linkToPage' => $movie['media_type'] == 'movie' ? route('movies.show', $movie['id']) : route('tv.show', $movie['id'])
             ]);
-        })->dump();
+        });
     }
 
     public function credits()
@@ -88,8 +93,10 @@ class ActorViewModel extends ViewModel
                 'character' => isset($movie['character'])
                         ? $movie['character']
                         : '',
+                'linkToPage' => $movie['media_type'] == 'movie' ? route('movies.show', $movie['id']) : route('tv.show', $movie['id'])
+                
             ]);
-        })->sortByDesc('release_date')->dump();
+        })->sortByDesc('release_date');
     }
 
 }
